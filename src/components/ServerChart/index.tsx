@@ -47,7 +47,7 @@ const ServerChart = ({
   className,
 }: props) => {
   const { data, error } = useSWR(
-    `${process.env.HOSTNAME}/api/server/id/${id}?sort=desc`,
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server/id/${id}?sort=desc`,
     fetcher
   );
 
