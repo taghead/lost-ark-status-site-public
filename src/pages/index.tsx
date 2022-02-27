@@ -10,7 +10,7 @@ interface props {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const url = `${process.env.NEXT_PUBLIC_URL}/api/server/`;
+  const url = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server/`;
   const res = await axios.get(url);
   const serverList = res.data;
 

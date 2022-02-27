@@ -32,7 +32,7 @@ interface props {
 
 const fetcher = (id: number) => {
   return axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/api/server/id/${id}?sort=desc`)
+    .get(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server/id/${id}?sort=desc`)
     .then((res: any) => {
       const data = res.data;
       data?.serverStatus?.push({

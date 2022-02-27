@@ -10,7 +10,7 @@ interface props {
 
 export const SupportButton = ({
   name = "Pizza Time",
-  href = `${process.env.NEXT_PUBLIC_URL}`,
+  href = `${process.env.NEXT_PUBLIC_VERCEL_URL}`,
   icon,
   width = "w-48",
   height = "h-16",
