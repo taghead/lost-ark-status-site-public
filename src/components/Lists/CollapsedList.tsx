@@ -34,13 +34,16 @@ export const CollapsedList = ({
         else if (visibility === "invisible") setVisibility("visible");
       }}
     >
-      <div key="" className={`rounded-2xl ${bgColor} h-max`}>
-        <div key="" className="hover:opacity-50 hover:cursor-pointer !visible">
+      <div key="Collapsed-List" className={`rounded-2xl ${bgColor} h-max`}>
+        <div
+          key="Collapsed-List-Button"
+          className="hover:opacity-50 hover:cursor-pointer !visible"
+        >
           {button}
         </div>
-        {items.map((item: any) => {
+        {items.map((item: any, index: number) => {
           return (
-            <div key="" className="hover:opacity-50 m-2 pb-2">
+            <div key={index} className="hover:opacity-50 m-2 pb-2">
               {item}
             </div>
           );

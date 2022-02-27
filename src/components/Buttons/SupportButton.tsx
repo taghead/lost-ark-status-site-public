@@ -1,11 +1,11 @@
 interface props {
-  name: string;
-  href: string;
-  icon: any;
-  width: string;
-  height: string;
-  bgColor: string;
-  className: string;
+  name?: string;
+  href?: string;
+  icon?: any;
+  width?: string;
+  height?: string;
+  bgColor?: string;
+  className?: string;
 }
 
 export const SupportButton = ({

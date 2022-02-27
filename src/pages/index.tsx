@@ -28,21 +28,13 @@ const Server: NextPage<props> = ({ serverList }) => {
   const [selectedServerId, setSelectedServerId] = useState(id || "");
 
   useEffect(() => {
-    if (id) {
-      setSelectedServerId(id);
-    }
-    if (search) {
-      setSearchServerList(search);
+    setSelectedServerId(id);
+  }, [id]);
 
-      const { id } = serverList[0];
-      setSelectedServerId(id);
-    }
-  }, []);
-
-  function updateUrl() {
+  function updateUrl(states: any) {
     const arrOfUrlStates = [
-      { key: "id", value: selectedServerId },
-      { key: "search", value: searchServerList },
+      { key: "id", value: states?.id || selectedServerId },
+      { key: "search", value: states?.search || searchServerList },
     ];
 
     let counter = 0;
@@ -94,7 +86,7 @@ const Server: NextPage<props> = ({ serverList }) => {
               key={server.id}
               onClick={() => {
                 setSelectedServerId(server.id);
-                updateUrl();
+                updateUrl({ id: server.id });
               }}
             >
               <div>

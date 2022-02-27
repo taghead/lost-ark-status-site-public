@@ -17,7 +17,7 @@ export const NavBar = ({
     >
       Welcome to Lost Ark server checker. Lets see how the Lost Ark servers
       are...
-      <SupportMe key="" />
+      <SupportMe />
     </div>
   );
 };
