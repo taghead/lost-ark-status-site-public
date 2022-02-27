@@ -27,10 +27,6 @@ const Server: NextPage<props> = ({ serverList }) => {
   const [searchServerList, setSearchServerList] = useState(search || "");
   const [selectedServerId, setSelectedServerId] = useState(id || "");
 
-  useEffect(() => {
-    setSelectedServerId(id);
-  }, [id]);
-
   function updateUrl(states: any) {
     const arrOfUrlStates = [
       { key: "id", value: states?.id || selectedServerId },
