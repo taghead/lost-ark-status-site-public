@@ -1,6 +1,4 @@
-import type { NextPage } from "next";
-import { useRouter } from "next/router";
-import React, { Component, useEffect, useState } from "react";
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,

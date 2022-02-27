@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import React, { Component, useEffect, useState } from "react";
+import React, { useState } from "react";
 import ServerChart from "../components/ServerChart";
 
 interface props {
