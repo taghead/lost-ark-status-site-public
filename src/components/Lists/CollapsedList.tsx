@@ -14,7 +14,7 @@ interface props {
 
 export const CollapsedList = ({
   name = "Pizza Time",
-  href = `${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  href = `${process.env.NEXT_PUBLIC_URL}`,
   icon,
   // eslint-disable-next-line react/jsx-key
   items = [<div>Pizza Time</div>, <div>Pizza Time</div>],
