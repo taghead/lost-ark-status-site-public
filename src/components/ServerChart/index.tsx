@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import useSWR from "swr";
+import axios from "axios";
 
 ChartJS.register(
   CategoryScale,
@@ -29,16 +30,19 @@ interface props {
   className: string;
 }
 
-const fetcher = (url: any) =>
-  fetch(url).then((res) =>
-    res.json().then((res) => {
-      res?.serverStatus?.push({
+const fetcher = (id: number) => {
+  return axios
+    .get(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server/id/${id}?sort=desc`)
+    .then((res: any) => {
+      const data = res.data;
+      data?.serverStatus?.push({
         createdAt: new Date().toISOString(),
-        status: res?.serverStatus[res.serverStatus.length - 1]?.status,
+        status: data?.serverStatus[data.serverStatus.length - 1]?.status,
       });
-      return res;
-    })
-  );
+
+      return data;
+    });
+};
 
 const ServerChart = ({
   id = "",
@@ -46,12 +50,9 @@ const ServerChart = ({
   tz = "Australia/Sydney",
   className,
 }: props) => {
-  const { data, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server/id/${id}?sort=desc`,
-    fetcher
-  );
+  const { data, error } = useSWR(id, fetcher);
 
-  if (error) return <div>An error has occurred.</div>;
+  if (error) return <div>Error? Try clicking a server.</div>;
   if (!data) return <div>Loading...</div>;
 
   const server = data;

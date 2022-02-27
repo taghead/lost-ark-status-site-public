@@ -1,3 +1,4 @@
+import axios from "axios";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -10,8 +11,8 @@ interface props {
 export async function getServerSideProps() {
   // Fetch data from external API
   const url = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server/`;
-  const res = await fetch(url);
-  const serverList = await res.json();
+  const res = await axios.get(url);
+  const serverList = res.data;
 
   // Pass data to the page via props
   return { props: { serverList } };
