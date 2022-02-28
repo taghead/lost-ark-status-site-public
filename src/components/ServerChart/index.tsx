@@ -48,7 +48,7 @@ const fetcher = (id: number) => {
 const ServerChart = ({
   id = "",
   locale = "en-US",
-  tz = "Australia/Sydney",
+  tz = Intl.DateTimeFormat().resolvedOptions().timeZone,
   className,
 }: props) => {
   const { data, error } = useSWR(id, fetcher);
@@ -110,6 +110,11 @@ const ServerChart = ({
   return (
     <div className={`bg-white rounded-2xl ${className}`}>
       <Line options={chartOptions} data={chartData} />
+      Extra details
+      <details>
+        <summary>Your timezone is: (Click to reveal)</summary>
+        {tz}
+      </details>
     </div>
   );
 };
