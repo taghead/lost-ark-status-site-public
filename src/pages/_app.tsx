@@ -5,7 +5,7 @@ import { NavBar } from "../components/NavBar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <html className="min-h-screen max-h-screen min-w-screen max-w-screen flex flex-col">
+    <div className="min-h-screen max-h-screen min-w-screen max-w-screen flex flex-col">
       <NavBar />
       <div className="relative flex flex-grow h-96">
         {/* <nav className="bg-white shadow-sm p-6 space-y-6 w-64"> Navbar </nav> */}
@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </main>
       </div>
-    </html>
+    </div>
   );
 }
 

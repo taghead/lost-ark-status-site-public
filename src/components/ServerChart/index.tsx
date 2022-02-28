@@ -32,9 +32,10 @@ interface props {
 
 const fetcher = (id: number) => {
   return axios
-    .get(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server/id/${id}?sort=desc`)
+    .get(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server/id/${id}`)
     .then((res: any) => {
       const data = res.data;
+      data?.serverStatus.reverse();
       data?.serverStatus?.push({
         createdAt: new Date().toISOString(),
         status: data?.serverStatus[data.serverStatus.length - 1]?.status,
@@ -60,18 +61,6 @@ const ServerChart = ({
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: true,
-    // responsive: true,
-    // maintainAspectRatio: true,
-    // resizeDelay: 50,
-    // plugins: {
-    //   legend: {
-    //     position: "top" as const,
-    //   },
-    //   title: {
-    //     display: true,
-    //     text: server?.name,
-    //   },
-    // },
     scales: {
       y: {
         ticks: {

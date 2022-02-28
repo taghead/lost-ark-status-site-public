@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "lighthouse http://localhost:3000",
     "push": "prisma db push",
     "generate": "prisma generate"
   },

@@ -16,7 +16,7 @@ export default async function handler(
         include: {
           serverStatus: {
             orderBy: {
-              createdAt: sort || "desc",
+              createdAt: "desc",
             },
             take: 30,
           },

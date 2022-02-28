@@ -1,7 +1,7 @@
-import axios from "axios";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import prisma from "../../lib/prisma";
 import ServerChart from "../components/ServerChart";
 
 interface props {
@@ -9,10 +9,25 @@ interface props {
 }
 
 export async function getServerSideProps() {
-  // Fetch data from external API
-  const url = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server/`;
-  const res = await axios.get(url);
-  const serverList = res.data;
+  const serverList = await prisma.server
+    .findMany({
+      orderBy: [
+        {
+          name: "asc",
+        },
+      ],
+      include: {
+        serverStatus: {
+          orderBy: {
+            createdAt: "asc",
+          },
+          take: 1,
+        },
+      },
+    })
+    .then((servers) => {
+      return JSON.parse(JSON.stringify(servers));
+    });
 
   // Pass data to the page via props
   return { props: { serverList } };
