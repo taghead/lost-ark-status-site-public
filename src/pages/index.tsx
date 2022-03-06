@@ -66,7 +66,7 @@ const Server: NextPage<props> = ({ serverList }) => {
 
   const renderDashboard = (
     <>
-      <div className="bg-white shadow rounded-2xl col-span-4 md:col-span-3 lg:col-span-1">
+      <div className="bg-white shadow rounded-2xl col-span-4 md:col-span-4 lg:col-span-1">
         <div className="h-1/6 rounded-t-2xl bg-red-400 p-2 font-bold">
           Get started
         </div>
