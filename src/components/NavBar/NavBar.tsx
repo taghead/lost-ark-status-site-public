@@ -15,8 +15,11 @@ export const NavBar = ({
     <div
       className={`px-8 flex items-center justify-between py-4 shadow-sm ${textColor} ${bgColor} ${className}`}
     >
-      Welcome to Lost Ark server checker. Lets see how the Lost Ark servers
-      are...
+      <div className="flex">
+        <p>
+          Welcome to <p className="font-bold">Lost Ark Status</p>
+        </p>
+      </div>
       <SupportMe />
     </div>
   );

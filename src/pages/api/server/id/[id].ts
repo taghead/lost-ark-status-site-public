@@ -18,7 +18,7 @@ export default async function handler(
             orderBy: {
               createdAt: "desc",
             },
-            take: 30,
+            take: 14,
           },
         },
       })

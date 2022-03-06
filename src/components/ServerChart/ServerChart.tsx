@@ -54,7 +54,8 @@ export const ServerChart = ({
 }: props) => {
   const { data, error } = useSWR(id, fetcher);
 
-  if (error) return <div>Error? Try clicking a server.</div>;
+  if (error)
+    return <div>An error has occurred. Unable to load server status.</div>;
   if (!data) return <SkeletonBox className={className} />;
 
   const server = data;
@@ -111,11 +112,6 @@ export const ServerChart = ({
   return (
     <div className={`bg-white rounded-2xl p-4 ${className}`}>
       <Line options={chartOptions} data={chartData} />
-      Extra details
-      <details>
-        <summary>Your timezone is: (Click to reveal)</summary>
-        {tz}
-      </details>
     </div>
   );
 };

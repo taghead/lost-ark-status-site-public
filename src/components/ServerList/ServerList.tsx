@@ -6,6 +6,7 @@ interface props {
   searchServerList: any;
   setSearchServerList: any;
   setSelectedServerId: any;
+  className: string;
 }
 
 export const ServerList = ({
@@ -13,13 +14,14 @@ export const ServerList = ({
   searchServerList,
   setSearchServerList,
   setSelectedServerId,
+  className,
 }: props) => {
   const router = useRouter();
 
   return (
-    <div className="bg-white shadow-2xl p-2 overflow-y-scroll">
+    <div className={`bg-white shadow-2xl p-2 overflow-y-scroll ${className}`}>
       <input
-        className="rounded  border-2 p-2 m-2"
+        className="rounded border-2 p-2 m-2"
         type="text"
         placeholder="Search.."
         value={searchServerList}

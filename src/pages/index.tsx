@@ -39,13 +39,14 @@ const Server: NextPage<props> = ({ serverList }) => {
   const id: any = router.query.id || undefined;
   const search: any = router.query.search || undefined;
   const locale: any = router.query.locale || "en-US";
-  const tz: any = router.query.locale || "Australia/Sydney";
+  const tz: any = router.query.locale || "Australia/Melbourne";
 
   const [searchServerList, setSearchServerList] = useState(search || "");
   const [selectedServerId, setSelectedServerId] = useState(id || "");
 
   const renderServerList = (
     <ServerList
+      className="col-span-4 lg:col-span-1 row-span-1 lg:row-span-4"
       serverList={serverList}
       searchServerList={searchServerList}
       setSearchServerList={setSearchServerList}
@@ -55,17 +56,44 @@ const Server: NextPage<props> = ({ serverList }) => {
 
   const renderServerChart = (
     <ServerChart
-      className="col-span-3"
+      className="col-span-4 lg:col-span-3 row-span-3 lg:row-span-4"
       locale={locale}
       tz={tz}
       id={selectedServerId}
     />
   );
 
+  const renderDashboard = (
+    <>
+      <div className="bg-white shadow rounded-2xl col-span-3 md:col-span-3 lg:col-span-1">
+        <div className="h-1/6 rounded-t-2xl bg-red-400 p-2 font-bold">
+          Get started
+        </div>
+        <div className="p-2">
+          <p>Welcome to Lost Ark Status.</p>
+          <br />
+          <p>
+            An unofficial website that keeps track of the status of Lost Ark
+            servers.
+          </p>
+          <br />
+          <p>To begin click on a server.</p>
+        </div>
+      </div>
+      <div>
+        Extra details
+        <details>
+          <summary>Your timezone is: (Click to reveal)</summary>
+          {tz}
+        </details>
+      </div>
+    </>
+  );
+
   return (
-    <div className="h-full w-full grid grid-cols-4 gap-4">
+    <div className="h-full w-full grid grid-cols-4 grid-rows-4 gap-4">
       {renderServerList}
-      {renderServerChart}
+      {selectedServerId ? renderServerChart : renderDashboard}
     </div>
   );
 };
