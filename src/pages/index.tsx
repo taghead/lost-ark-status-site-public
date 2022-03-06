@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import prisma from "../../lib/prisma";
@@ -92,10 +93,26 @@ const Server: NextPage<props> = ({ serverList }) => {
   );
 
   return (
-    <div className="h-full w-full grid grid-cols-4 grid-rows-4 gap-4">
-      {renderServerList}
-      {id ? renderServerChart : renderDashboard}
-    </div>
+    <>
+      <Head>
+        <title>Lost Ark Status</title>
+        <meta
+          name="description"
+          content="Unofficial Lost Ark status tracker. View server uptime, trends and more."
+        />
+        <meta property="og:title" content="Lost Ark server status" />
+        <meta
+          property="og:description"
+          content="Unofficial Lost Ark status tracker. View server uptime, trends and more."
+        />
+        <meta property="og:url" content="https://lostarkstatus.xyz/" />
+        <meta property="og:type" content="website" />
+      </Head>
+      <div className="h-full w-full grid grid-cols-4 grid-rows-4 gap-4">
+        {renderServerList}
+        {id ? renderServerChart : renderDashboard}
+      </div>
+    </>
   );
 };
 
