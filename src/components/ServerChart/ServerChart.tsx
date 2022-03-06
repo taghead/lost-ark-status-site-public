@@ -12,6 +12,7 @@ import {
 import { Line } from "react-chartjs-2";
 import useSWR from "swr";
 import axios from "axios";
+import { SkeletonBox } from "../Loading";
 
 ChartJS.register(
   CategoryScale,
@@ -45,7 +46,7 @@ const fetcher = (id: number) => {
     });
 };
 
-const ServerChart = ({
+export const ServerChart = ({
   id = "",
   locale = "en-US",
   tz = Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -54,7 +55,7 @@ const ServerChart = ({
   const { data, error } = useSWR(id, fetcher);
 
   if (error) return <div>Error? Try clicking a server.</div>;
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <SkeletonBox className={className} />;
 
   const server = data;
 
@@ -108,7 +109,7 @@ const ServerChart = ({
   };
 
   return (
-    <div className={`bg-white rounded-2xl ${className}`}>
+    <div className={`bg-white rounded-2xl p-4 ${className}`}>
       <Line options={chartOptions} data={chartData} />
       Extra details
       <details>

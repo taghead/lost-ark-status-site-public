@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import prisma from "../../lib/prisma";
-import ServerChart from "../components/ServerChart";
+import { ServerChart } from "../components/ServerChart";
 import { ServerList } from "../components/ServerList";
 
 interface props {
@@ -44,25 +44,28 @@ const Server: NextPage<props> = ({ serverList }) => {
   const [searchServerList, setSearchServerList] = useState(search || "");
   const [selectedServerId, setSelectedServerId] = useState(id || "");
 
+  const renderServerList = (
+    <ServerList
+      serverList={serverList}
+      searchServerList={searchServerList}
+      setSearchServerList={setSearchServerList}
+      setSelectedServerId={setSelectedServerId}
+    />
+  );
+
+  const renderServerChart = (
+    <ServerChart
+      className="col-span-3"
+      locale={locale}
+      tz={tz}
+      id={selectedServerId}
+    />
+  );
+
   return (
     <div className="h-full w-full grid grid-cols-4 gap-4">
-      {/* Server List */}
-
-      <ServerList
-        serverList={serverList}
-        searchServerList={searchServerList}
-        setSearchServerList={setSearchServerList}
-        setSelectedServerId={setSelectedServerId}
-      />
-
-      {/* Server Charts */}
-
-      <ServerChart
-        className="col-span-3"
-        locale={locale}
-        tz={tz}
-        id={selectedServerId}
-      />
+      {renderServerList}
+      {renderServerChart}
     </div>
   );
 };
