@@ -1,11 +1,19 @@
 /** @type {import('next').NextConfig} */
 
-const production = [
-  {
-    key: "Content-Security-Policy",
-    value: "default-src 'self'",
-  },
-];
+const productionHeaders =
+  process.env.NODE_ENV === "development"
+    ? [
+        {
+          key: "Content-Security-Policy",
+          value: "undefined",
+        },
+      ]
+    : [
+        {
+          key: "Content-Security-Policy",
+          value: "default-src 'self'",
+        },
+      ];
 
 const nextConfig = {
   reactStrictMode: true,
@@ -44,13 +52,8 @@ const nextConfig = {
           {
             key: "Referrer-Policy",
             value: "strict-origin",
-            // value: "origin-when-cross-origin",
           },
-          ...production,
-          // {
-          //   key: 'Permissions-Policy',
-          //   value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
-          // },
+          ...productionHeaders,
         ],
       },
     ];
