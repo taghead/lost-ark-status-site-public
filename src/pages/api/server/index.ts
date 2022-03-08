@@ -1,30 +1,31 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import prisma from "../../../../../lib/prisma";
+import prisma from "../../../../lib/prisma";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const id: any = req.query.id;
-
   if (req.method === "GET") {
     return await prisma.server
-      .findUnique({
-        where: { id: id },
+      .findMany({
+        orderBy: [
+          {
+            name: "asc",
+          },
+        ],
         include: {
           serverStatus: {
             orderBy: {
               createdAt: "desc",
             },
-            take: 14,
+            take: 1,
           },
         },
       })
       .then((servers) => {
-        if (!servers)
-          return res.status(404).json({ message: `${id} not found` });
-        return res.status(200).json(servers);
+        if (!servers) return res.status(404).json({ message: `Not found` });
+        return res.status(200).json(JSON.parse(JSON.stringify(servers)));
       })
       .catch((err) => {
         res.status(500).json({ message: "Something broke :S" });

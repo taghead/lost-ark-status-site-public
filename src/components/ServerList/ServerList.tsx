@@ -1,22 +1,63 @@
 import { updateUrl } from "../../../lib/updateUrl";
 import { useRouter } from "next/router";
+import { SkeletonBox } from "../../components/Loading";
+import useSWR from "swr";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 interface props {
-  serverList: any;
-  searchServerList: any;
-  setSearchServerList: any;
   setSelectedServerId: any;
   className: string;
 }
 
-export const ServerList = ({
-  serverList,
-  searchServerList,
-  setSearchServerList,
-  setSelectedServerId,
-  className,
-}: props) => {
+const defaultList = [
+  {
+    id: "0",
+    uniqueName: "",
+    name: "Failed to load...",
+    region: " ",
+    createdAt: " ",
+    updatedAt: " ",
+    serverStatus: [
+      {
+        id: " ",
+        createdAt: " ",
+        updatedAt: " ",
+        status: "Full",
+        serverId: " ",
+      },
+    ],
+  },
+];
+
+const fetcher = (url: string) => {
+  return axios
+    .get(url)
+    .then((res: any) => {
+      const data = res.data;
+      return data;
+    })
+    .catch((err) => {
+      return defaultList;
+    });
+};
+
+export const ServerList = ({ setSelectedServerId, className }: props) => {
   const router = useRouter();
+  const search: any = router.query.search || undefined;
+
+  const [searchServerList, setSearchServerList] = useState(search || "");
+
+  const { data, error } = useSWR(
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server`,
+    fetcher
+  );
+
+  if (error)
+    return <div>An error has occurred. Unable to load server status.</div>;
+  if (!data) return <SkeletonBox className={className} />;
+
+  const serverList = data;
 
   return (
     <div className={`bg-white shadow-2xl p-2 overflow-y-scroll ${className}`}>
