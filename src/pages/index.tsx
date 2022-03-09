@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { InfoCard } from "../components/Cards";
 import { ServerChart } from "../components/ServerChart";
 import { ServerList } from "../components/ServerList";
 
@@ -33,28 +34,31 @@ const Server: NextPage = () => {
 
   const renderDashboard = (
     <>
-      <div className="bg-white shadow rounded-2xl col-span-4 md:col-span-4 lg:col-span-1">
-        <div className="h-1/6 rounded-t-2xl bg-red-400 p-2 font-bold">
-          Get started
-        </div>
-        <div className="p-2">
-          <p>Welcome to Lost Ark Status.</p>
-          <br />
-          <p>
-            An unofficial website that keeps track of the status of Lost Ark
-            servers.
-          </p>
-          <br />
-          <p>To begin click on a server.</p>
-        </div>
-      </div>
-      <div>
-        Extra details
-        <details>
-          <summary>Your timezone is: (Click to reveal)</summary>
-          {tz}
-        </details>
-      </div>
+      <InfoCard
+        heading="Get started"
+        body={
+          <>
+            <p>Welcome to Lost Ark Status.</p>
+            <br />
+            <p>
+              An unofficial website that keeps track of the status of Lost Ark
+              servers.
+            </p>
+            <br />
+            <p>To begin click on a server.</p>
+          </>
+        }
+      />
+      <InfoCard
+        heading="Timezone"
+        body={
+          <>
+            <p>
+              Your current timezone is set to <b>{tz}</b>
+            </p>
+          </>
+        }
+      />
     </>
   );
 
