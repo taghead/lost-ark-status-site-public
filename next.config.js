@@ -16,6 +16,7 @@ const productionHeaders =
       ];
 
 const nextConfig = {
+  swcMinify: true,
   reactStrictMode: true,
   env: {
     NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
