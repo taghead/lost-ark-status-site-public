@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -84,6 +85,7 @@ export const ServerChart = ({
   };
 
   const chartLabels = server?.serverStatus?.map((status: any) => {
+    return moment(status.createdAt).startOf("day").fromNow();
     return new Date(status.createdAt).toLocaleString(locale, { timeZone: tz });
   });
 
