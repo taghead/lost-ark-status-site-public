@@ -18,6 +18,7 @@ const Server: NextPage = () => {
 
   const renderServerList = (
     <ServerList
+      selectedServerId={selectedServerId}
       className="col-span-4 lg:col-span-1 row-span-1 lg:row-span-4"
       setSelectedServerId={setSelectedServerId}
     />

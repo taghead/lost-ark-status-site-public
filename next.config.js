@@ -11,7 +11,8 @@ const productionHeaders =
     : [
         {
           key: "Content-Security-Policy",
-          value: "default-src 'self'",
+          value:
+            "default-src 'self' vitals.vercel-insights.com; script-src 'self'; child-src example.com; style-src 'self' example.com; font-src 'self';",
         },
       ];
 

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 interface props {
+  selectedServerId: any;
   setSelectedServerId: any;
   className: string;
 }
@@ -42,7 +43,11 @@ const fetcher = (url: string) => {
     });
 };
 
-export const ServerList = ({ setSelectedServerId, className }: props) => {
+export const ServerList = ({
+  selectedServerId,
+  setSelectedServerId,
+  className,
+}: props) => {
   const router = useRouter();
   const search: any = router.query.search || undefined;
 
@@ -83,7 +88,9 @@ export const ServerList = ({ setSelectedServerId, className }: props) => {
           )
           .map((server: any) => (
             <div
-              className="flex  justify-between rounded bg-white hover:translate-x-2 shadow-2xl p-2 m-2 cursor-pointer"
+              className={`flex  justify-between rounded bg-white ${
+                selectedServerId === server.id ? "hover:translate-x-2" : ""
+              } hover:translate-x-2 shadow-2xl p-2 m-2 cursor-pointer`}
               key={server.id}
               onClick={() => {
                 setSelectedServerId(server.id);
