@@ -29,7 +29,7 @@ const Server: NextPage = () => {
       className="col-span-4 lg:col-span-3 row-span-3 lg:row-span-4"
       locale={locale}
       tz={tz}
-      id={selectedServerId}
+      id={selectedServerId || id}
     />
   );
 
