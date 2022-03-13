@@ -39,14 +39,12 @@ const Server: NextPage = () => {
         heading="Get started"
         body={
           <>
-            <p>Welcome to Lost Ark Status.</p>
-            <br />
             <p>
-              An unofficial website that keeps track of the status of Lost Ark
-              servers.
+              Lost Ark Status is the unofficial website that keeps track of the
+              status of game servers.
             </p>
             <br />
-            <p>To begin click on a server.</p>
+            <p>Try giving one of the servers a click.</p>
           </>
         }
       />

@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { ServerItemList } from "./ServerItemList";
 import { ServerSearchBar } from "./ServerSearchBar";
+import { InfoCard } from "../Cards";
 
 interface props {
   selectedServerId: any;
@@ -44,12 +45,24 @@ export const ServerList = ({
   if (!data) return <SkeletonBox className={className} />;
 
   return (
-    <div className={`grid h-full ${className}`}>
-      <ServerSearchBar
-        searchServerList={searchServerList}
-        setSearchServerList={setSearchServerList}
-      />
-
+    <div className={`grid grid-rows-6 h-full ${className}`}>
+      <div>
+        <InfoCard
+          className="m-2 p-2"
+          bgColor="bg-blue-200"
+          heading="Mokoko Says"
+          body={
+            <>
+              <p>Welcome to Lost Ark Status.</p>
+            </>
+          }
+        />
+        <ServerSearchBar
+          className=""
+          searchServerList={searchServerList}
+          setSearchServerList={setSearchServerList}
+        />
+      </div>
       <ServerItemList
         className="row-span-5"
         serverList={data}
