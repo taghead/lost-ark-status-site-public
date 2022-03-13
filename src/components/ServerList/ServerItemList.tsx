@@ -7,6 +7,7 @@ interface props {
   searchServerList: any;
   selectedServerId: any;
   setSelectedServerId: any;
+  showOffline: any;
 }
 
 export const ServerItemList = ({
@@ -33,6 +34,7 @@ export const ServerItemList = ({
   searchServerList = undefined,
   selectedServerId,
   setSelectedServerId,
+  showOffline = false,
 }: props) => {
   const router = useRouter();
   return (
@@ -52,7 +54,12 @@ export const ServerItemList = ({
           )
           .map((server: any) => (
             <div
-              className={`flex  justify-between rounded bg-white ${
+              className={`flex justify-between rounded bg-white ${
+                server.serverStatus[0]?.status === "Offline" &&
+                showOffline === false
+                  ? "hidden"
+                  : "visible"
+              } ${
                 selectedServerId === server.id ? "bg-blue-100" : ""
               } hover:translate-x-2 shadow-2xl p-2 m-2 cursor-pointer`}
               key={server.id}

@@ -5,7 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { ServerItemList } from "./ServerItemList";
 import { ServerSearchBar } from "./ServerSearchBar";
-import { InfoCard } from "../Cards";
+import { Toggle } from "../Toggle";
 
 interface props {
   selectedServerId: any;
@@ -34,6 +34,7 @@ export const ServerList = ({
   const search: any = router.query.search || undefined;
 
   const [searchServerList, setSearchServerList] = useState(search || "");
+  const [showOffline, setShowOffline] = useState(false);
 
   const { data, error } = useSWR(
     `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server`,
@@ -46,17 +47,30 @@ export const ServerList = ({
 
   return (
     <div className={`grid grid-rows-6 h-full ${className}`}>
-      <ServerSearchBar
-        className="h-min row-span-3 lg:row-span-1"
-        searchServerList={searchServerList}
-        setSearchServerList={setSearchServerList}
-      />
+      <div className="row-span-3 lg:row-span-1 m-4">
+        <ServerSearchBar
+          className="h-min"
+          searchServerList={searchServerList}
+          setSearchServerList={setSearchServerList}
+        />
+        <div className="grid grid-cols-2 grid-rows-3 mt-2">
+          <Toggle
+            className="col-span-1"
+            text="Offline"
+            toggled={showOffline}
+            onClick={() => {
+              setShowOffline(!showOffline);
+            }}
+          />
+        </div>
+      </div>
       <ServerItemList
         className="row-span-3 lg:row-span-5"
         serverList={data}
         searchServerList={searchServerList}
         selectedServerId={selectedServerId}
         setSelectedServerId={setSelectedServerId}
+        showOffline={showOffline}
       />
     </div>
   );
