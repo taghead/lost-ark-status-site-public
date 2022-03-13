@@ -1,8 +1,8 @@
-import { updateUrl } from "../../../lib/updateUrl";
+import { updateUrl } from "../../../../../lib/updateUrl";
 import { useRouter } from "next/router";
-import { SkeletonBox } from "../../components/Loading";
+import { SkeletonBox } from "../../../../components/Loading";
 import useSWR from "swr";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 interface props {
