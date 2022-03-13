@@ -6,7 +6,7 @@ export const MokokoSeed = ({}: props) => {
   return (
     <Image
       src="/LoadingIcons/MokokoSeed/index.svg"
-      alt="An SVG of an eye"
+      alt="Loading..."
       height="120"
       width="120"
       layout="responsive"
