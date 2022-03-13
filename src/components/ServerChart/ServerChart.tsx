@@ -58,8 +58,22 @@ export const ServerChart = ({
 
   if (error)
     return <div>An error has occurred. Unable to load server status.</div>;
-  if (!data)
-    return <SkeletonBox className={className} message={<MokokoSeed />} />;
+  if (data)
+    return (
+      <SkeletonBox
+        animatePulse={false}
+        className={className}
+        message={
+          <MokokoSeed
+            leafColor="fill-grey-500"
+            bodyColor="fill-grey-500"
+            pupilColor="fill-grey-500"
+            cheeksColor="fill-grey-500"
+            duration="1.5s"
+          />
+        }
+      />
+    );
 
   const server = data;
 
