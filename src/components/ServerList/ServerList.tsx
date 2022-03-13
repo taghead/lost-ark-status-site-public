@@ -89,7 +89,7 @@ export const ServerList = ({
           .map((server: any) => (
             <div
               className={`flex  justify-between rounded bg-white ${
-                selectedServerId === server.id ? "hover:translate-x-2" : ""
+                selectedServerId === server.id ? "bg-blue-100" : ""
               } hover:translate-x-2 shadow-2xl p-2 m-2 cursor-pointer`}
               key={server.id}
               onClick={() => {
