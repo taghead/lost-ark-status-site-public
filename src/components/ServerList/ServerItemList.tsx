@@ -72,7 +72,9 @@ export const ServerItemList = ({
               </div>
               <div>
                 {server.serverStatus
-                  ? server?.serverStatus[0]?.status === "Maintenance"
+                  ? server?.serverStatus[0]?.status === "Offline"
+                    ? "❌"
+                    : server?.serverStatus[0]?.status === "Maintenance"
                     ? "🔨"
                     : server?.serverStatus[0]?.status === "Full"
                     ? "🔴"
