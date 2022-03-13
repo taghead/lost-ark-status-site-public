@@ -14,6 +14,7 @@ import { Line } from "react-chartjs-2";
 import useSWR from "swr";
 import axios from "axios";
 import { SkeletonBox } from "../Loading";
+import { MokokoSeed } from "../LoadingIcons";
 
 ChartJS.register(
   CategoryScale,
@@ -57,7 +58,8 @@ export const ServerChart = ({
 
   if (error)
     return <div>An error has occurred. Unable to load server status.</div>;
-  if (!data) return <SkeletonBox className={className} />;
+  if (!data)
+    return <SkeletonBox className={className} message={<MokokoSeed />} />;
 
   const server = data;
 

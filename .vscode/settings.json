@@ -6,5 +6,8 @@
   "editor.formatOnSave": true,
   "editor.minimap.maxColumn": 80,
   "workbench.iconTheme": "vscode-icons",
-  "cSpell.words": ["Buymeacoffee", "Kofi"]
+  "cSpell.words": ["Buymeacoffee", "Kofi", "Mokoko"],
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  }
 }
