@@ -46,25 +46,13 @@ export const ServerList = ({
 
   return (
     <div className={`grid grid-rows-6 h-full ${className}`}>
-      <div>
-        <InfoCard
-          className="m-2 p-2"
-          bgColor="bg-blue-200"
-          heading="Mokoko Says"
-          body={
-            <>
-              <p>Welcome to Lost Ark Status.</p>
-            </>
-          }
-        />
-        <ServerSearchBar
-          className=""
-          searchServerList={searchServerList}
-          setSearchServerList={setSearchServerList}
-        />
-      </div>
+      <ServerSearchBar
+        className="h-min row-span-3 lg:row-span-1"
+        searchServerList={searchServerList}
+        setSearchServerList={setSearchServerList}
+      />
       <ServerItemList
-        className="row-span-5"
+        className="row-span-3 lg:row-span-5"
         serverList={data}
         searchServerList={searchServerList}
         selectedServerId={selectedServerId}

@@ -13,7 +13,7 @@ export const InfoCard = ({
 }: props) => {
   return (
     <div
-      className={`bg-white shadow rounded-2xl col-span-4 md:col-span-4 lg:col-span-1 ${className}`}
+      className={`bg-white shadow rounded-2xl col-span-4 m-2 md:col-span-4 lg:col-span-1 ${className}`}
     >
       <div className={`h-1/6 rounded-t-2xl ${bgColor} p-2 font-bold`}>
         {heading}
