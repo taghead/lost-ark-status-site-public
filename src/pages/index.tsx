@@ -1,6 +1,4 @@
-import axios from "axios";
 import type { NextPage } from "next";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { InfoCard } from "../components/Cards";
@@ -63,24 +61,6 @@ const Server: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Lost Ark Status | Is your server down?</title>
-        <meta
-          name="description"
-          content="Unofficial Lost Ark status tracker. View server uptime, trends and more."
-        />
-        <meta
-          property="og:title"
-          content="Lost Ark Status | Is your server down?"
-        />
-        <meta
-          property="og:description"
-          content="The unofficial Lost Ark server status tracker. Check if your server is down, view server uptime, graphs, trends and more."
-        />
-        <meta property="og:url" content="https://lostarkstatus.xyz/" />
-        <meta property="og:type" content="website" />
-      </Head>
-
       <div className="h-full w-full grid grid-cols-4 grid-rows-4 gap-4">
         {renderServerList}
         {id ? renderServerChart : renderDashboard}

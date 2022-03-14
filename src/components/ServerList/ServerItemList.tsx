@@ -74,8 +74,8 @@ export const ServerItemList = ({
               }}
             >
               <div>
-                <div className="tracking-widest">{server.name}</div>
-                <div className="text-sm">{server.region}</div>
+                <h2 className="tracking-widest">{server.name}</h2>
+                <h3 className="text-sm">{server.region}</h3>
               </div>
               <div>
                 {server.serverStatus
