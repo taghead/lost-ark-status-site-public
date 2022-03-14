@@ -64,12 +64,15 @@ const Server: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Lost Ark Status</title>
+        <title>Lost Ark Status | Is your server down?</title>
         <meta
           name="description"
           content="Unofficial Lost Ark status tracker. View server uptime, trends and more."
         />
-        <meta property="og:title" content="Lost Ark server status" />
+        <meta
+          property="og:title"
+          content="Lost Ark Status | Is your server down?"
+        />
         <meta
           property="og:description"
           content="Unofficial Lost Ark status tracker. View server uptime, trends and more."
