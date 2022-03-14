@@ -75,7 +75,7 @@ const Server: NextPage = () => {
         />
         <meta
           property="og:description"
-          content="Unofficial Lost Ark status tracker. View server uptime, trends and more."
+          content="The unofficial Lost Ark server status tracker. Check if your server is down, view server uptime, graphs, trends and more."
         />
         <meta property="og:url" content="https://lostarkstatus.xyz/" />
         <meta property="og:type" content="website" />
