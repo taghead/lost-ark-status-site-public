@@ -31,6 +31,8 @@ interface props {
   locale: string;
   tz: string;
   className: string;
+  responsive: boolean;
+  maintainAspectRatio: boolean;
 }
 
 const fetcher = (id: number) => {
@@ -53,6 +55,8 @@ export const ServerChart = ({
   locale = "en-US",
   tz = Intl.DateTimeFormat().resolvedOptions().timeZone,
   className,
+  responsive = false,
+  maintainAspectRatio = false,
 }: props) => {
   const { data, error } = useSWR(id, fetcher);
 
@@ -70,8 +74,8 @@ export const ServerChart = ({
   const server = data;
 
   const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
+    responsive: responsive,
+    maintainAspectRatio: maintainAspectRatio,
     scales: {
       y: {
         ticks: {

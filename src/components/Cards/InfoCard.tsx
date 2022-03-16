@@ -13,12 +13,12 @@ export const InfoCard = ({
 }: props) => {
   return (
     <div
-      className={`bg-white shadow rounded-2xl col-span-4 m-2 md:col-span-4 lg:col-span-1 ${className}`}
+      className={`w-full h-full bg-white shadow rounded-2xl m-2 ${className}`}
     >
-      <div className={`h-1/6 rounded-t-2xl ${bgColor} p-2 font-bold`}>
+      <div className={`h-min-fit rounded-t-2xl ${bgColor} p-2 font-bold`}>
         {heading}
       </div>
-      <div className="p-2">{body}</div>
+      <div className="h-min-fit p-2">{body}</div>
     </div>
   );
 };
