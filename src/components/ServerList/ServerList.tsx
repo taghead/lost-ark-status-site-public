@@ -46,26 +46,28 @@ export const ServerList = ({
   if (!data) return <SkeletonBox className={className} />;
 
   return (
-    <div className={`grid grid-rows-6 h-full ${className}`}>
-      <div className="row-span-3 lg:row-span-1 m-4">
+    <div className={`h-min max-h-full w-full flex-col ${className}`}>
+      <div className="m-4">
         <ServerSearchBar
-          className="h-min"
+          className="h-min w-full"
           searchServerList={searchServerList}
           setSearchServerList={setSearchServerList}
+          buttons={
+            <>
+              <Toggle
+                className="mt-2 w-24"
+                text="Offline"
+                toggled={showOffline}
+                onClick={() => {
+                  setShowOffline(!showOffline);
+                }}
+              />
+            </>
+          }
         />
-        <div className="grid grid-cols-2 grid-rows-3 mt-2">
-          <Toggle
-            className="col-span-1"
-            text="Offline"
-            toggled={showOffline}
-            onClick={() => {
-              setShowOffline(!showOffline);
-            }}
-          />
-        </div>
       </div>
       <ServerItemList
-        className="row-span-3 lg:row-span-5"
+        className="h-52"
         serverList={data}
         searchServerList={searchServerList}
         selectedServerId={selectedServerId}

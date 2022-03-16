@@ -19,7 +19,7 @@ export const Toggle = ({
 }: props) => {
   return (
     <div
-      className={`flex justify-between select-none cursor-pointer rounded-2xl p-2 ${bgColor} ${width} ${height} ${className}`}
+      className={`flex justify-between select-none cursor-pointer border shadow rounded-2xl p-2 ${bgColor} ${width} ${height} ${className}`}
       onClick={onClick}
     >
       <div className="">
