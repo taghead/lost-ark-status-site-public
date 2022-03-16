@@ -68,6 +68,8 @@ export const ServerChart = ({
         animatePulse={false}
         className={className}
         message={<MokokoSeed />}
+        messageHeight="h-48 lg:h-96"
+        messageWidth="w-48 lg:w-96"
       />
     );
 
