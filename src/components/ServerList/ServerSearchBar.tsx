@@ -14,7 +14,7 @@ export const ServerSearchBar = ({
   return (
     <div className={`bg-white shadow-2xl p-2 rounded-2xl w-full ${className}`}>
       <input
-        className="rounded border-2 p-2 w-full"
+        className="peer rounded border-2 p-2 w-full"
         type="text"
         placeholder="Search.."
         value={searchServerList}
@@ -22,7 +22,7 @@ export const ServerSearchBar = ({
           setSearchServerList(el.target.value);
         }}
       />
-      {buttons}
+      <div className="hidden peer-focus:block hover:block">{buttons}</div>
     </div>
   );
 };

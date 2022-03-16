@@ -59,7 +59,7 @@ const Server: NextPage = () => {
                   the status of game servers.
                 </p>
                 <br />
-                <p>Try giving one of the servers a click.</p>
+                <p>Try giving the search box a go by typing Zinnervale.</p>
               </>
             }
             className="lg:h-fit lg:w-96"

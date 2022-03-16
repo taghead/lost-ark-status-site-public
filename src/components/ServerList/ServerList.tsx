@@ -62,16 +62,16 @@ export const ServerList = ({
                   setShowOffline(!showOffline);
                 }}
               />
+              <ServerItemList
+                className="h-full max-h-64 w-full mt-4"
+                serverList={data}
+                searchServerList={searchServerList}
+                selectedServerId={selectedServerId}
+                setSelectedServerId={setSelectedServerId}
+                showOffline={showOffline}
+              />
             </>
           }
-        />
-        <ServerItemList
-          className="h-full max-h-64 w-full mt-4"
-          serverList={data}
-          searchServerList={searchServerList}
-          selectedServerId={selectedServerId}
-          setSelectedServerId={setSelectedServerId}
-          showOffline={showOffline}
         />
       </div>
     </div>
