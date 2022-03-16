@@ -47,7 +47,7 @@ export const ServerList = ({
 
   return (
     <div className={`h-min max-h-full w-full flex-col ${className}`}>
-      <div className="m-4">
+      <div className="">
         <ServerSearchBar
           className="h-min w-full"
           searchServerList={searchServerList}
@@ -55,7 +55,7 @@ export const ServerList = ({
           buttons={
             <>
               <Toggle
-                className="mt-2 w-24"
+                className="w-24"
                 text="Offline"
                 toggled={showOffline}
                 onClick={() => {
@@ -65,15 +65,15 @@ export const ServerList = ({
             </>
           }
         />
+        <ServerItemList
+          className="h-full max-h-64 w-full mt-4"
+          serverList={data}
+          searchServerList={searchServerList}
+          selectedServerId={selectedServerId}
+          setSelectedServerId={setSelectedServerId}
+          showOffline={showOffline}
+        />
       </div>
-      <ServerItemList
-        className="h-52"
-        serverList={data}
-        searchServerList={searchServerList}
-        selectedServerId={selectedServerId}
-        setSelectedServerId={setSelectedServerId}
-        showOffline={showOffline}
-      />
     </div>
   );
 };

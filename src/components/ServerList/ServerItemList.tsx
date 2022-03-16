@@ -1,5 +1,6 @@
 import { updateUrl } from "../../../lib/updateUrl";
 import { useRouter } from "next/router";
+import { InfoCard } from "../Cards";
 
 interface props {
   className?: any;
@@ -39,62 +40,85 @@ export const ServerItemList = ({
   const router = useRouter();
   return (
     <div
-      className={`bg-white shadow-2xl p-2 overflow-y-scroll rounded-2xl m-2 h-full ${className}`}
+      className={`bg-white shadow-2xl p-2 overflow-y-auto rounded-2xl h-full ${className}`}
     >
       <div>
-        {serverList
-          .filter(
-            (server: any) =>
-              server.name
-                .toLowerCase()
-                .includes(searchServerList.toLowerCase()) ||
-              server.region
-                .toLowerCase()
-                .includes(searchServerList.toLowerCase())
-          )
-          .map((server: any) => (
-            <div
-              className={`flex justify-between rounded bg-white ${
-                server.serverStatus[0]?.status === "Offline" &&
-                showOffline === false
-                  ? "hidden"
-                  : "visible"
-              } ${
-                selectedServerId === server.id ? "bg-blue-100" : ""
-              } hover:translate-x-2 shadow-2xl p-2 m-2 cursor-pointer`}
-              key={server.id}
-              onClick={() => {
-                setSelectedServerId(server.id);
-                updateUrl(
-                  {
-                    id: server.id,
-                  },
-                  router
-                );
-              }}
-            >
-              <div>
-                <h2 className="tracking-widest">{server.name}</h2>
-                <h3 className="text-sm">{server.region}</h3>
+        {serverList.filter(
+          (server: any) =>
+            server.name
+              .toLowerCase()
+              .includes(searchServerList.toLowerCase()) ||
+            server.region.toLowerCase().includes(searchServerList.toLowerCase())
+        ).length ? (
+          serverList
+            .filter(
+              (server: any) =>
+                server.name
+                  .toLowerCase()
+                  .includes(searchServerList.toLowerCase()) ||
+                server.region
+                  .toLowerCase()
+                  .includes(searchServerList.toLowerCase())
+            )
+            .map((server: any) => (
+              <div
+                className={`flex justify-between rounded bg-white ${
+                  server.serverStatus[0]?.status === "Offline" &&
+                  showOffline === false
+                    ? "hidden"
+                    : "visible"
+                } ${
+                  selectedServerId === server.id ? "bg-blue-100" : ""
+                } hover:translate-x-2 shadow-2xl p-2 m-2 cursor-pointer`}
+                key={server.id}
+                onClick={() => {
+                  setSelectedServerId(server.id);
+                  updateUrl(
+                    {
+                      id: server.id,
+                    },
+                    router
+                  );
+                }}
+              >
+                <div>
+                  <h2 className="tracking-widest">{server.name}</h2>
+                  <h3 className="text-sm">{server.region}</h3>
+                </div>
+                <div>
+                  {server.serverStatus
+                    ? server?.serverStatus[0]?.status === "Offline"
+                      ? "❌"
+                      : server?.serverStatus[0]?.status === "Maintenance"
+                      ? "🔨"
+                      : server?.serverStatus[0]?.status === "Full"
+                      ? "🔴"
+                      : server?.serverStatus[0]?.status === "Busy" ||
+                        server?.serverStatus[0]?.status === "Busy "
+                      ? "🟡"
+                      : server?.serverStatus[0]?.status === "Good"
+                      ? "🟢"
+                      : "❓"
+                    : null}
+                </div>
               </div>
-              <div>
-                {server.serverStatus
-                  ? server?.serverStatus[0]?.status === "Offline"
-                    ? "❌"
-                    : server?.serverStatus[0]?.status === "Maintenance"
-                    ? "🔨"
-                    : server?.serverStatus[0]?.status === "Full"
-                    ? "🔴"
-                    : server?.serverStatus[0]?.status === "Busy" ||
-                      server?.serverStatus[0]?.status === "Busy "
-                    ? "🟡"
-                    : server?.serverStatus[0]?.status === "Good"
-                    ? "🟢"
-                    : "❓"
-                  : null}
-              </div>
-            </div>
-          ))}
+            ))
+        ) : (
+          <div className="mr-4">
+            <InfoCard
+              heading="You have unlocked no server found mode."
+              bgColor="bg-blue-200"
+              body={
+                <div>
+                  <br /> +0 Strength <br /> +0 Stamina
+                  <br /> +0 Mana, <br />
+                  <br /> Enjoy. :)
+                </div>
+              }
+            />
+            {/* You have unlocked no server found mode.  */}
+          </div>
+        )}
       </div>
     </div>
   );
