@@ -34,7 +34,7 @@ export const ServerList = ({
   const search: any = router.query.search || undefined;
 
   const [searchServerList, setSearchServerList] = useState(search || "");
-  const [showOffline, setShowOffline] = useState(false);
+  const [showOffline, setShowOffline] = useState(true);
 
   const { data, error } = useSWR(
     `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/server`,
