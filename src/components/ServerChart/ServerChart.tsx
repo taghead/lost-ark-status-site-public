@@ -42,7 +42,7 @@ const fetcher = (id: number) => {
       const data = res.data;
       data?.serverStatus.reverse();
       data?.serverStatus?.push({
-        createdAt: new Date().toISOString(),
+        createdAt: moment.utc(),
         status: data?.serverStatus[data.serverStatus.length - 1]?.status,
       });
 
@@ -101,8 +101,7 @@ export const ServerChart = ({
   };
 
   const chartLabels = server?.serverStatus?.map((status: any) => {
-    return moment(status.createdAt).startOf("day").fromNow();
-    return new Date(status.createdAt).toLocaleString(locale, { timeZone: tz });
+    return moment(status.createdAt).local().startOf("minutes").fromNow();
   });
 
   const chartData = {
