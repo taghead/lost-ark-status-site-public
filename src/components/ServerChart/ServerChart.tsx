@@ -101,7 +101,10 @@ export const ServerChart = ({
   };
 
   const chartLabels = server?.serverStatus?.map((status: any) => {
-    const daysAgo = moment(status.createdAt).local().startOf("days").fromNow();
+    const daysAgo = moment(status.createdAt)
+      .local()
+      .startOf("seconds")
+      .fromNow();
     const time = moment(status.createdAt).local().format("LT");
     return `${daysAgo} @ ${time}`;
   });
