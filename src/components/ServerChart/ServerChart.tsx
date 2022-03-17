@@ -83,15 +83,15 @@ export const ServerChart = ({
         ticks: {
           // Include a dollar sign in the ticks
           callback: function (value: any) {
-            return value === 5
+            return value === 1
               ? "Offline"
-              : value === 4
+              : value === 2
               ? "Maintenance"
               : value === 3
               ? "Full"
-              : value === 2
+              : value === 4
               ? "Busy"
-              : value === 1
+              : value === 5
               ? "Good"
               : null;
           },
@@ -112,15 +112,15 @@ export const ServerChart = ({
         label: server?.name,
         data: server?.serverStatus?.map((status: any) => {
           return status.status.includes("Offline")
-            ? 5
+            ? 1
             : status.status.includes("Maintenance")
-            ? 4
+            ? 2
             : status.status.includes("Full")
             ? 3
             : status.status.includes("Busy")
-            ? 2
+            ? 4
             : status.status.includes("Good")
-            ? 1
+            ? 5
             : null;
         }),
         borderColor: "#ff0000",
