@@ -17,7 +17,7 @@ export default async function handler(
         status.scraper = res.data.status;
       });
 
-    res.send(status);
+    return res.status(200).json(status);
   } else {
     // Handle any other HTTP method
   }

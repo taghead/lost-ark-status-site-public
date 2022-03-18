@@ -18,8 +18,6 @@ export const HealthCheck = ({ className }: props) => {
     getRequest
   );
 
-  console.log(data);
-
   if (error) return <div>An error has occurred.</div>;
   if (!data)
     return (
