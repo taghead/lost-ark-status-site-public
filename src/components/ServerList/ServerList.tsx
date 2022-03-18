@@ -43,7 +43,12 @@ export const ServerList = ({
 
   if (error)
     return <div>An error has occurred. Unable to load server status.</div>;
-  if (!data) return <SkeletonBox className={className} />;
+  if (!data)
+    return (
+      <SkeletonBox
+        className={`h-min max-h-full w-full flex-col ${className}`}
+      />
+    );
 
   return (
     <div className={`h-min max-h-full w-full flex-col ${className}`}>
