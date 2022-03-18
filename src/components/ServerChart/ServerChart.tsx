@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { convertStatus } from "../../../lib/utils";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -81,19 +82,8 @@ export const ServerChart = ({
     scales: {
       y: {
         ticks: {
-          // Include a dollar sign in the ticks
           callback: function (value: any) {
-            return value === 1
-              ? "Offline"
-              : value === 2
-              ? "Maintenance"
-              : value === 3
-              ? "Full"
-              : value === 4
-              ? "Busy"
-              : value === 5
-              ? "Good"
-              : null;
+            return convertStatus(value);
           },
         },
       },
@@ -115,17 +105,7 @@ export const ServerChart = ({
       {
         label: server?.name,
         data: server?.serverStatus?.map((status: any) => {
-          return status.status.includes("Offline")
-            ? 1
-            : status.status.includes("Maintenance")
-            ? 2
-            : status.status.includes("Full")
-            ? 3
-            : status.status.includes("Busy")
-            ? 4
-            : status.status.includes("Good")
-            ? 5
-            : null;
+          return convertStatus(status.status);
         }),
         borderColor: "#ff0000",
         stepped: true,

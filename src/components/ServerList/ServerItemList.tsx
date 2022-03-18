@@ -1,4 +1,4 @@
-import { updateUrl } from "../../../lib/updateUrl";
+import { updateUrl, convertStatus } from "../../../lib/utils";
 import { useRouter } from "next/router";
 import { InfoCard } from "../Cards";
 
@@ -86,20 +86,9 @@ export const ServerItemList = ({
                   <h3 className="text-sm">{server.region}</h3>
                 </div>
                 <div>
-                  {server.serverStatus
-                    ? server?.serverStatus[0]?.status === "Offline"
-                      ? "❌"
-                      : server?.serverStatus[0]?.status === "Maintenance"
-                      ? "🔨"
-                      : server?.serverStatus[0]?.status === "Full"
-                      ? "🔴"
-                      : server?.serverStatus[0]?.status === "Busy" ||
-                        server?.serverStatus[0]?.status === "Busy "
-                      ? "🟡"
-                      : server?.serverStatus[0]?.status === "Good"
-                      ? "🟢"
-                      : "❓"
-                    : null}
+                  {convertStatus(server?.serverStatus[0]?.status, {
+                    emoji: true,
+                  })}
                 </div>
               </div>
             ))

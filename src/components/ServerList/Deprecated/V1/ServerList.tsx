@@ -1,4 +1,4 @@
-import { updateUrl } from "../../../../../lib/updateUrl";
+import { updateUrl } from "../../../../../lib/utils";
 import { useRouter } from "next/router";
 import { SkeletonBox } from "../../../../components/Loading";
 import useSWR from "swr";
