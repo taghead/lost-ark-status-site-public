@@ -49,7 +49,7 @@ export function convertStatus(
     emoji: false,
     ...options,
   };
-  console.log(opts);
+
   const map = [
     { string: "Offline", number: 1, emoji: "❌" },
     { string: "Maintenance", number: 2, emoji: "🔨" },
