@@ -49,32 +49,34 @@ const Server: NextPage = () => {
         </>
       ) : (
         // If server has not been selected
-        <div className="md:flex lg:col-span-3 lg:row-span-3">
-          <InfoCard
-            heading="Get started"
-            body={
-              <>
-                <p>
-                  Lost Ark Status is the unofficial website that keeps track of
-                  the status of game servers.
-                </p>
-                <br />
-                <p>Try giving the search box a go by typing Zinnervale.</p>
-              </>
-            }
-            className="lg:h-fit lg:w-96"
-          />
-          <InfoCard
-            heading="Timezone"
-            body={
-              <>
-                <p>
-                  Your current timezone is set to <b>{tz}</b>
-                </p>
-              </>
-            }
-            className="lg:h-fit lg:w-96"
-          />
+        <div className="lg:col-span-3 lg:row-span-3">
+          <div className="lg:grid lg:grid-cols-3 lg:gap-4">
+            <InfoCard
+              heading="Get started"
+              body={
+                <>
+                  <p>
+                    Lost Ark Status is the unofficial website that keeps track
+                    of the status of game servers.
+                  </p>
+                  <br />
+                  <p>Try giving the search box a go by typing Zinnervale.</p>
+                </>
+              }
+              className="lg:h-fit lg:w-auto"
+            />
+            <InfoCard
+              heading="Timezone"
+              body={
+                <>
+                  <p>
+                    Your current timezone is set to <b>{tz}</b>
+                  </p>
+                </>
+              }
+              className="lg:h-fit lg:w-auto"
+            />
+          </div>
         </div>
       )}
     </div>
