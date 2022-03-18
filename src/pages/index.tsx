@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { InfoCard } from "../components/Cards";
 import { ServerChart } from "../components/ServerChart";
 import { ServerList } from "../components/ServerList";
+import { HealthCheck } from "../components/HealthCheck";
 
 const Server: NextPage = () => {
   const router = useRouter();
@@ -72,6 +73,15 @@ const Server: NextPage = () => {
                   <p>
                     Your current timezone is set to <b>{tz}</b>
                   </p>
+                </>
+              }
+              className="lg:h-fit lg:w-auto"
+            />
+            <InfoCard
+              heading="Health Check"
+              body={
+                <>
+                  <HealthCheck />
                 </>
               }
               className="lg:h-fit lg:w-auto"
