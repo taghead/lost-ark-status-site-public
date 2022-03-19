@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import axios from "axios";
-import { SkeletonBox } from "../Loading";
+import { Spinners } from "../Loading";
 
 interface props {
   className?: string;
@@ -19,22 +19,16 @@ export const HealthCheck = ({ className }: props) => {
   );
 
   if (error) return <div>An error has occurred.</div>;
-  if (!data)
-    return (
-      <SkeletonBox
-        className={`h-min max-h-full w-full flex-col ${className}`}
-      />
-    );
 
   return (
     <div className="grid grid-cols-1 divide-y divide-gray-400">
       <div className="flex justify-between">
         <div>Site:</div>
-        <div>{data.site}</div>
+        <div>{data ? data?.site : <Spinners className={`h-4 w-4`} />}</div>
       </div>
       <div className="flex justify-between">
         <div>Scraper:</div>
-        <div>{data.scraper}</div>
+        <div>{data ? data?.scraper : <Spinners className={`h-4 w-4`} />}</div>
       </div>
     </div>
   );
