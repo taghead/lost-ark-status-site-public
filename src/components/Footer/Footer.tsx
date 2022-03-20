@@ -1,5 +1,4 @@
 import axios from "axios";
-import moment from "moment";
 import Link from "next/link";
 import useSWR from "swr";
 
@@ -15,7 +14,7 @@ const getRequest = (url: string) => {
 
 export const Footer = ({ className = "" }: props) => {
   const { data, error } = useSWR(
-    "https://api.github.com/repos/taghead/lost-ark-status-site-public/branches/main",
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/health`,
     getRequest
   );
 
@@ -23,13 +22,7 @@ export const Footer = ({ className = "" }: props) => {
     <div
       className={`flex justify-between text-center p-6 bg-gray-200 ${className}`}
     >
-      <div>
-        Updated:{" "}
-        {moment(data?.commit.commit.author.date)
-          .local()
-          .startOf("seconds")
-          .fromNow()}
-      </div>
+      <div>Updated: {data ? data.siteUpdatedAt : "..."}</div>
       <div className="underline text-black font-semibold  visited:text-gray-400">
         <Link href="https://github.com/taghead/lost-ark-status-site-public">
           Github
