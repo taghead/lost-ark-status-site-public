@@ -35,7 +35,6 @@ const Server: NextPage = () => {
             tz={tz}
             id={selectedServerId || id}
             responsive={true}
-            maintainAspectRatio={false}
           />
           <div className="m-4 grid grid-cols-1 grid-row-1 lg:hidden ">
             <ServerChart
