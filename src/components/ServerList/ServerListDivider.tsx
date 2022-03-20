@@ -39,18 +39,21 @@ export const ServerListDivider = ({
 
   return (
     <div className={`overflow-y-scroll ${className}`}>
-      <table className="w-full text-left">
+      <table className="w-full text-left  ">
         <thead>
-          <tr>
+          <tr className=" bg-slate-200  sticky top-0">
             <th>Server</th>
             <th>Region</th>
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="divide-y divide-solid ">
           {data.map((server: any) => {
             return (
-              <tr key={server.id} className="w-fit">
+              <tr
+                key={server.id}
+                className="w-fit hover:bg-blue-100 odd:bg-white even:bg-slate-100"
+              >
                 <td>
                   <Link href={`?id=${server.id} `}>
                     <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">

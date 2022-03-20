@@ -94,7 +94,7 @@ const Server: NextPage = () => {
                   />
                 </>
               }
-              className="h-max"
+              className="col-span-3 h-max"
             />
           </div>
         </div>
