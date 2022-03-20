@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { InfoCard } from "../components/Cards";
 import { ServerChart } from "../components/ServerChart";
-import { ServerList } from "../components/ServerList";
+import { ServerList, ServerListDivider } from "../components/ServerList";
 import { HealthCheck } from "../components/HealthCheck";
 
 const Server: NextPage = () => {
@@ -64,7 +64,6 @@ const Server: NextPage = () => {
                   <p>Try giving the search box a go by typing Zinnervale.</p>
                 </>
               }
-              className="lg:h-fit lg:w-auto"
             />
             <InfoCard
               heading="Timezone"
@@ -75,7 +74,6 @@ const Server: NextPage = () => {
                   </p>
                 </>
               }
-              className="lg:h-fit lg:w-auto"
             />
             <InfoCard
               heading="Health Check"
@@ -84,7 +82,19 @@ const Server: NextPage = () => {
                   <HealthCheck />
                 </>
               }
-              className="lg:h-fit lg:w-auto"
+            />
+            <InfoCard
+              heading="Servers"
+              body={
+                <>
+                  <ServerListDivider
+                    selectedServerId={selectedServerId}
+                    setSelectedServerId={setSelectedServerId}
+                    className="h-64"
+                  />
+                </>
+              }
+              className="h-max"
             />
           </div>
         </div>
