@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <div className="min-h-screen max-h-screen min-w-screen max-w-screen flex flex-col">
         <NavBar />
-        <div className="relative flex flex-grow h-96">
+        <div className="relative flex flex-grow h-full">
           <main className="bg-gray-100 flex-1 p-6">
             <Component {...pageProps} />
           </main>
