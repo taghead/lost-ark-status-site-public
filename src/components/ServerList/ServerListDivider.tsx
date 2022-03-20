@@ -35,7 +35,18 @@ export const ServerListDivider = ({
   );
 
   if (error) return <div>An error has occurred. Unable to load servers.</div>;
-  if (!data) return <SkeletonBox className={`h-min max-h-full`} />;
+  if (!data)
+    return (
+      <div className={`overflow-y-scroll ${className}`}>
+        <SkeletonBox className={`h-8  mb-2`} />
+        <SkeletonBox className={`h-8  mb-2`} />
+        <SkeletonBox className={`h-8  mb-2`} />
+        <SkeletonBox className={`h-8  mb-2`} />
+        <SkeletonBox className={`h-8  mb-2`} />
+        <SkeletonBox className={`h-8  mb-2`} />
+        <SkeletonBox className={`h-8  mb-2`} />
+      </div>
+    );
 
   return (
     <div className={`overflow-y-scroll ${className}`}>
