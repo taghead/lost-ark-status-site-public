@@ -35,14 +35,11 @@ export const Footer = ({ className = "" }: props) => {
           Github
         </Link>
       </div>
-      <div>
-        <span>Created by </span>
-        <Link
-          className="underline text-black font-semibold  visited:text-gray-400"
-          href="https://github.com/taghead"
-        >
-          Taghead
-        </Link>
+      <div className="flex justify-between">
+        <span>Created by: </span>
+        <div className="underline text-black font-semibold  visited:text-gray-400">
+          <Link href="https://github.com/taghead">Taghead</Link>
+        </div>
       </div>
     </div>
   );
