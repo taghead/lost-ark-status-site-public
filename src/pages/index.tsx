@@ -19,7 +19,7 @@ const Server: NextPage = () => {
   const [selectedServerId, setSelectedServerId] = useState(id || "");
 
   return (
-    <div className="h-full gap-4 lg:grid lg:grid-cols-4 lg:grid-rows-4">
+    <div className="gap-4 lg:grid lg:grid-cols-4 lg:grid-rows-3">
       <ServerList
         selectedServerId={selectedServerId}
         className="lg:col-span-1 lg:row-span-4"
@@ -35,7 +35,6 @@ const Server: NextPage = () => {
             tz={tz}
             id={selectedServerId || id}
             responsive={true}
-            maintainAspectRatio={false}
           />
           <div className="m-4 grid grid-cols-1 grid-row-1 lg:hidden ">
             <ServerChart
