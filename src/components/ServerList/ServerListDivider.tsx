@@ -67,7 +67,7 @@ export const ServerListDivider = ({
               >
                 <td>
                   <Link href={`?id=${server.id} `}>
-                    <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+                    <a className="underline text-black font-semibold  visited:text-gray-400">
                       {server.name}
                     </a>
                   </Link>
