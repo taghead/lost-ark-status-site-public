@@ -3,36 +3,44 @@ import type { AppProps } from "next/app";
 import { NavBar } from "../components/NavBar";
 import Head from "next/head";
 import { Footer } from "../components/Footer";
+import { NextSeo } from "next-seo";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <html lang="en">
       <Head>
-        <title>Lost Ark Status | Is Lost Ark down?</title>
-        <meta
-          name="description"
-          content="Unofficial Lost Ark status tracker. View server uptime, trends and more."
-        />
-        <meta
-          name="keywords"
-          content="Lost, Ark, Down, Up, Server, Status"
-        ></meta>
-        <meta
-          property="og:title"
-          content="Lost Ark Status | Is Lost Ark down?"
-        />
-        <meta
-          property="og:description"
-          content="Unofficial Lost Ark status tracker. View server uptime, trends and more."
-        />
-        <meta property="og:url" content="https://lostarkstatus.xyz/" />
-        <meta property="og:type" content="website" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="min-h-screen max-h-screen min-w-screen max-w-screen flex flex-col">
         <NavBar />
         <div className="relative flex flex-grow h-full">
           <main className="bg-gray-100 flex-1 p-6">
+            <NextSeo
+              title="Lost Ark Status | Is Lost Ark down?"
+              description="Unofficial Lost Ark status tracker. View server uptime, trends and more."
+              canonical="https://lostarkstatus.xyz/"
+              openGraph={{
+                url: "https://lostarkstatus.xyz/",
+                title: "Lost Ark Status | Is Lost Ark down?",
+                description:
+                  "Unofficial Lost Ark status tracker. View server uptime, trends and more.",
+                images: [
+                  {
+                    url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/LoadingIcons/MokokoSeed/index.svg`,
+                    width: 900,
+                    height: 400,
+                    alt: "Lost Ark Status",
+                    type: "image/jpeg",
+                  },
+                ],
+                site_name: "Lost Ark Status",
+              }}
+              twitter={{
+                handle: "@handle",
+                site: "@site",
+                cardType: "summary_large_image",
+              }}
+            />
             <Component {...pageProps} />
           </main>
         </div>
