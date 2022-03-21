@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                   "Unofficial Lost Ark status tracker. View server uptime, trends and more.",
                 images: [
                   {
-                    url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/LoadingIcons/MokokoSeed/index.svg`,
+                    url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/preview.jpg`,
                     width: 900,
                     height: 400,
                     alt: "Lost Ark Status",
