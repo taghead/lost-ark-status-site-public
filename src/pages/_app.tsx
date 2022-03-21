@@ -16,14 +16,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <div className="relative flex flex-grow h-full">
           <main className="bg-gray-100 flex-1 p-6">
             <NextSeo
-              title="Lost Ark Status | Is Lost Ark down?"
-              description="Unofficial Lost Ark status tracker. View server uptime, trends and more."
+              title="Lost Ark Status"
+              description="Is Lost Ark down? The unofficial Lost Ark status tracker. View server uptime, trends and more."
               canonical="https://lostarkstatus.xyz/"
               openGraph={{
                 url: "https://lostarkstatus.xyz/",
-                title: "Lost Ark Status | Is Lost Ark down?",
+                title: "Lost Ark Status",
                 description:
-                  "Unofficial Lost Ark status tracker. View server uptime, trends and more.",
+                  "Is Lost Ark down? The unofficial Lost Ark status tracker. View server uptime, trends and more.",
                 images: [
                   {
                     url: `${process.env.NEXT_PUBLIC_VERCEL_URL}/preview.jpg`,
