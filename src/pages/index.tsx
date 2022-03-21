@@ -57,8 +57,8 @@ const Server: NextPage = () => {
               body={
                 <>
                   <p>
-                    Lost Ark Status is the unofficial website that keeps track
-                    of the status of game servers.
+                    Lost Ark status - Is Lost Ark down? The unofficial lost ark
+                    server status tracker. View server uptime, trends and more.
                   </p>
                   <br />
                   <p>Try giving the search box a go by typing Zinnervale.</p>
