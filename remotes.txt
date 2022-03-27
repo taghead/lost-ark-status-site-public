@@ -1,2 +1,2 @@
 git remote set-url --add --push origin git@github.com:server-lens/status-site.git
-git remote set-url --add --push origin git@github.com:taghead/lost-ark-status-site-public.git
+git remote set-url --add --push origin git@github.com:taghead/lostarkstatus.xyz

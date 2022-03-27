@@ -24,9 +24,7 @@ export const Footer = ({ className = "" }: props) => {
     >
       <div>Updated: {data ? data.siteUpdatedAt : "..."}</div>
       <div className="underline text-black font-semibold  visited:text-gray-400">
-        <Link href="https://github.com/taghead/lost-ark-status-site-public">
-          Github
-        </Link>
+        <Link href="https://github.com/taghead/lostarkstatus.xyz">Github</Link>
       </div>
       <div className="flex justify-between">
         <span>Created by: </span>
